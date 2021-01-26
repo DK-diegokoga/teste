@@ -2,17 +2,24 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text, StatusBar, Alert } from 'react-native';
 
 export default function Home() {
-    /*var validando = true;*/
+    //var validando = true;
     var sequencePlayer = "";
     //var maxJogadas = 5;
     var randomic = "";
     var sequenceGame = "";
-
+    var cont = 0;
+    //var vetSwitch = [10];
+    //var vetColor = [10];
+    
     function random() {
-        do {
+        do{
+        //for(var i = 0; i < sequenceGame.length; i++){
             randomic += Math.floor((Math.random() * 4 )+ 1).toString();
             sequenceGame += randomic
-            switch (randomic) {
+            //vetSwitch[i] = randomic}
+        
+        //for (var x = 0; x < cont;  x++){
+            switch (sequenceGame) {
                 case '1':
                     //sequenceGame += randomic;
                     Alert.alert('red')
@@ -34,7 +41,8 @@ export default function Home() {
 
                     break;
             }
-        } while (validando != true)
+        //}
+        }while(validando != true)
     }
     var validando = true
     //var i = 1;
@@ -43,10 +51,8 @@ export default function Home() {
         validando = true
         random();
         //i++
-
+        //cont = 0;
         // } else {Alert.alert('You Lose!')
-
-
         //validando = false
     }
     // compare()
@@ -55,18 +61,18 @@ export default function Home() {
             if (sequencePlayer[i] == sequenceGame[i]) {
                 start();
             }
-            /*else{
+            else{
                 gameOver()
-            }*/
-            if (sequencePlayer[i] != sequenceGame[i]) {
+            }
+            /*if (sequencePlayer[i] != sequenceGame[i]) {
                 validando = false
                 gameOver();
-            }
+            }*/
         }
     }
 
     function gameOver() {
-        //validando = false
+        validando = false
         Alert.alert('Game Over!')
         //restart()
     }
@@ -78,19 +84,23 @@ export default function Home() {
 
 
     function redButton() {
-        sequencePlayer += "1"; 
+        sequencePlayer += "1"
+        //vetColor[cont] += "1"; 
         //compare()
     }
     function yellowButton() {
-        sequencePlayer += "2"; 
+        sequencePlayer += "2"
+        //vetColor[cont] += "2"; 
         //compare()
     }
     function blueButton() {
-        sequencePlayer += "3"; 
+        sequencePlayer += "3"
+        //vetColor[cont] += "3"; 
         //compare()
     }
     function greenButton() {
-        sequencePlayer += "4";
+        sequencePlayer += "4"
+        //vetColor[cont] += "4";
         //compare()
     }
 
@@ -100,12 +110,11 @@ export default function Home() {
             <StatusBar barStyle="light-content" />
             <View style={styles.tela}>
 
-
                 <TouchableOpacity
                     style={styles.redButton1}
                     onPress={() => {
-                        redButton(compare())
-
+                        redButton()
+                        compare()
                     }}
                 >
 
@@ -122,20 +131,18 @@ export default function Home() {
                 <TouchableOpacity
                     style={styles.yellowButton2}
                     onPress={() => {
-                        yellowButton(compare())
-
+                        yellowButton()
+                        compare()
                     }}
-
                 >
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.blueButton3}
                     onPress={() => {
-                        blueButton(
-                            compare()
-                            )
-
+                        blueButton()
+                        compare()
+                           
                     }}
                 >
                 </TouchableOpacity>
@@ -143,8 +150,8 @@ export default function Home() {
                 <TouchableOpacity
                     style={styles.greenButton4}
                     onPress={() => {
-                        greenButton(compare())
-
+                        greenButton()
+                        compare()
                     }}
                 >
                 </TouchableOpacity>
@@ -214,7 +221,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#90EE90',
         bottom: 160,
     },
-    again: {
-
-    }
 });
